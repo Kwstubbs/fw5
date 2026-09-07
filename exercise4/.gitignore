@@ -1,0 +1,5 @@
+jhead/
+fuzz_exif
+crash-*
+leak-*
+timeout-*

@@ -1,0 +1,17 @@
+# Python (exercise 3, Homework)
+.venv/
+__pycache__/
+*.pyc
+
+# Java (exercise 1)
+*.class
+out/
+
+# Fuzzer artifacts (exercise4/corpus holds a checked-in seed, so it is not listed)
+exercise1/corpus/
+exercise3/corpus/
+crash-*
+leak-*
+timeout-*
+oom-*
+slow-unit-*
