@@ -1,9 +1,9 @@
 {
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
 
-  "onCreateCommand": "bash -lc 'sudo apt-get update && sudo apt-get install -y --no-install-recommends openjdk-21-jdk curl ca-certificates && sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/* && curl -LsSf https://astral.sh/uv/install.sh | sh && export PATH=$PATH:/home/vscode/.local/bin && uv tool update-shell && uv python install 3.11'",
+  "onCreateCommand": "bash -lc 'sudo apt-get update && sudo apt-get install -y --no-install-recommends openjdk-21-jdk clang curl ca-certificates && sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/* && curl -LsSf https://astral.sh/uv/install.sh | sh && export PATH=$PATH:/home/vscode/.local/bin && uv tool update-shell && uv python install 3.11'",
 
-  "postCreateCommand": "bash -lc 'export PATH=/home/vscode/.local/bin:$PATH && java -version && javac -version && uv --version && uv python list && python3.11 -V'",
+  "postCreateCommand": "bash -lc 'export PATH=/home/vscode/.local/bin:$PATH && java -version && javac -version && clang --version && uv --version && uv python list && python3.11 -V'",
 
   "containerEnv": {
     "JAVA_HOME": "/usr/lib/jvm/java-21-openjdk-amd64"

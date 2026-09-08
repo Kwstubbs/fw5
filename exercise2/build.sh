@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds the exercise 4 fuzz target: jhead's EXIF parser.
+# Builds the exercise 2 fuzz target: jhead's EXIF parser.
 #
 # jhead 3.00, pinned to the commit just before the 2016 EXIF hardening changes
 # ("handle potential overflow" / "Changes ... relating to fuzz testing").

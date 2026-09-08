@@ -1,1 +1,18 @@
-All the submitted solutions are in this folder
+Simple stdin fuzzer warmup
+==========================
+
+The intentionally vulnerable target looks for a setting in the form key=value.
+The target accepts input typed at a prompt or piped through standard input.
+
+Try valid manual input:
+
+	python3.11 target.py
+
+Try ignored, valid, and invalid piped input:
+
+	printf 'color=blue' | python3.11 target.py
+	printf 'color' | python3.11 target.py
+
+Try random bytes. The input must be bounded because /dev/urandom never ends:
+
+	head -c 32 /dev/urandom | python3.11 target.py

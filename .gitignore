@@ -7,9 +7,10 @@ __pycache__/
 *.class
 out/
 
-# Fuzzer artifacts (exercise4/corpus holds a checked-in seed, so it is not listed)
+# Fuzzer artifacts (tracked corpus seeds remain available despite these rules)
 exercise1/corpus/
 exercise3/corpus/
+exercise2/corpus/
 crash-*
 leak-*
 timeout-*
