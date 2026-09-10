@@ -3,7 +3,7 @@
 __pycache__/
 *.pyc
 
-# Java (exercise 1)
+# Java (exercise 2)
 *.class
 out/
 
@@ -16,3 +16,4 @@ leak-*
 timeout-*
 oom-*
 slow-unit-*
+/workspaces/fw5/warmup/fuzzer.py
