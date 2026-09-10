@@ -16,4 +16,5 @@ leak-*
 timeout-*
 oom-*
 slow-unit-*
-/workspaces/fw5/warmup/fuzzer.py
+/warmup/fuzzer.py
+/exercise3/fuzz_mistune.py
