@@ -1,0 +1,22 @@
+# Markdown grammar tokens, read off the constructs mistune's regexes parse.
+# Syntax only, deliberately no payload shapes: the fuzzer has to work out how
+# to break an attribute by itself.
+quote="\""
+squote="'"
+newline="\x0a"
+lt="<"
+gt=">"
+
+email="@a.com"
+email_autolink="<a@a.com>"
+fence="```"
+fence_lang="```py"
+footnote="[^"
+link_open="["
+link_mid="]("
+link_close=")"
+img="!["
+refdef="]: "
+title=" \"t\""
+bracket_pair="[]"
+paren_pair="()"

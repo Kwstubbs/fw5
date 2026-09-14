@@ -5,18 +5,13 @@ public class fuzzer {
     // Jazzer expects a public static method named fuzzerTestOneInput
     public static void fuzzerTestOneInput(byte[] data) {
     
-        String s = new String(data);
+        // Convert the input byte array into the appropriate format for parsing
         
         try {
-        
-          BookingForm.parseBooking(s);
+        // Let's fuzz parseBooking API!
+          BookingForm.parseBooking();
           
-        } catch (ArrayIndexOutOfBoundsException e) {
-        
-          throw e;
-        
-        } catch (Exception e) {
-            // Ignore
+        } catch (IllegalArgumentException ignored) {
         }
     }
 }

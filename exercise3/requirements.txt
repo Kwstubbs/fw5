@@ -1,0 +1,4 @@
+atheris
+mistune==0.7.4
+beautifulsoup4
+html5lib
