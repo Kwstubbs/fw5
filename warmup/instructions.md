@@ -1,5 +1,9 @@
 # Simple stdin fuzzer warmup
 
+This is a behavior-based fuzzing exercise only. Do not open or inspect `target.py`
+or other target source code to find the vulnerability. Discover it by generating
+inputs and observing the program's outputs and crashes.
+
 ## Step 1:
 
 Open a codespace with at least 4 cores at https://github.com/Kwstubbs/fw5
@@ -30,3 +34,10 @@ Try random bytes. The input must be bounded because /dev/urandom never ends:
 ## Step 4:
 
 Try to trigger a ValueError within the python script, which will crash the program.
+
+## Step 5: Reproduce a crash
+
+From the `warmup` directory, replay the saved crash input by replacing the
+filename below with the reported filename:
+
+	python3.11 target.py < ./crashes/crash-78.bin

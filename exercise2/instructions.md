@@ -53,7 +53,7 @@ The compiled classes land in `out/`.
 Jazzer flags use `--`, while the libFuzzer flags underneath it use a single
 `-`. Mixing the two up is the most common reason a flag appears to be ignored.
 
-Useful flags while experimenting:
+Useful libFuzzer flags while experimenting:
 
 ```
 -runs=100000          stop after N executions

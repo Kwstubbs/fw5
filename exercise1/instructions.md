@@ -17,7 +17,7 @@ harness in `fuzz_exif.c`. From the `exercise1` directory:
 This needs `clang`. If it is missing:
 
 ```
-sudo apt-get install -y clang
+sudo apt-get install -y clang libclang-rt-18-dev
 ```
 
 The script prints the path to the binary it produced, `./fuzz_exif`.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Attribute-injection oracle: targets bypass 2 only.
+"""Detect unexpected tags and attributes in mistune's HTML output.
 
-Bypass 2 is an escaping failure. An unescaped " in an interpolated value ends
-the attribute early, so the rest of the payload is parsed as *new markup*. The
+An unescaped double quote in an interpolated attribute value can end the
+attribute early, so the rest of the payload is parsed as *new markup*. The
 signature is therefore structural: a tag or attribute appears that mistune's
 renderers cannot produce.
 
@@ -43,8 +43,12 @@ def find_injection(html):
 
     for tag in soup.find_all(True):
         if tag.name not in ALLOWED_TAGS:
+            # TODO: Return a short description of this unexpected tag.
+            pass
 
         allowed = ALLOWED_ATTRS.get(tag.name, frozenset())
         for attr in tag.attrs:
+            # TODO: Return a short description if attr is not allowed for this tag.
+            pass
 
     return None
