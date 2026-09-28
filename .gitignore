@@ -19,3 +19,6 @@ timeout-*
 oom-*
 slow-unit-*
 /warmup/fuzzer.py
+
+# Workshop materials
+/Fuzzing workshop - 4th edition.pdf
