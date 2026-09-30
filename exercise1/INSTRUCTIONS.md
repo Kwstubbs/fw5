@@ -14,10 +14,12 @@ harness in `fuzz_exif.c`. From the `exercise1` directory:
 ./build.sh
 ```
 
-This needs `clang`. If it is missing:
+This needs `clang`, the libFuzzer runtime, and `llvm-symbolizer` (provided by
+the `llvm` package). The devcontainer installs these. To install them locally
+or add missing dependencies to an existing container:
 
 ```
-sudo apt-get install -y clang libclang-rt-18-dev
+sudo apt-get install -y clang llvm libclang-rt-18-dev
 ```
 
 The script prints the path to the binary it produced, `./fuzz_exif`.
@@ -59,3 +61,7 @@ needed:
 The binary runs that one input and should fail the same way every time. A crash
 you cannot reproduce on demand is not yet a finding.
 
+The target is built with debug information (`-g`). `llvm-symbolizer` turns
+addresses in the crash stack into function names and source file/line numbers.
+If you see only addresses or an `invalid path to external symbolizer` warning,
+install `llvm` using the command in Step 1 (or rebuild the devcontainer).

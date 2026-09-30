@@ -18,6 +18,11 @@ if ! command -v clang >/dev/null; then
   exit 1
 fi
 
+if ! command -v llvm-symbolizer >/dev/null; then
+  echo "llvm-symbolizer is required for function names in crash reports (sudo apt-get install -y llvm)" >&2
+  exit 1
+fi
+
 if [ ! -d jhead ]; then
   git clone --quiet "$JHEAD_REPO" jhead
 fi
