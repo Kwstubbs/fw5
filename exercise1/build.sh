@@ -37,4 +37,4 @@ clang -g -O1 -fsanitize=fuzzer -w \
 echo "built ./fuzz_exif  (jhead $(git -C jhead log --oneline -1))"
 echo
 echo "run it with:"
-echo "  ./fuzz_exif corpus -artifact_prefix=./"
+echo "  ./fuzz_exif -artifact_prefix=./crashes"
