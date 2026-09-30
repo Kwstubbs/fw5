@@ -33,9 +33,16 @@ Try random bytes. The input must be bounded because /dev/urandom never ends:
 
 ## Step 4:
 
-Try to trigger a ValueError within the python script, which will crash the program.
+Write a fuzzer. Try to trigger a ValueError within the python script, which will crash the program.
 
-## Step 5: Reproduce a crash
+## Step 5:
+
+Open a PR on https://github.com/Kwstubbs/fw5 with your fuzzer.
+
+## Alert: 
+Step 6 may reveal information that is not intended for the exercise. Please only reproduce crashes after your fuzzer is submitted, or once the exercise is complete.
+
+## Step 6: Reproduce a crash
 
 From the `warmup` directory, replay the saved crash input by replacing the
 filename below with the reported filename:
