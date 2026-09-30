@@ -15,8 +15,7 @@ harness in `fuzz_exif.c`. From the `exercise1` directory:
 ```
 
 This needs `clang`, the libFuzzer runtime, and `llvm-symbolizer` (provided by
-the `llvm` package). The devcontainer installs these. To install them locally
-or add missing dependencies to an existing container:
+the `llvm` package). The devcontainer installs these. Only install these if they are missing from your container:
 
 ```
 sudo apt-get install -y clang llvm libclang-rt-18-dev
@@ -30,13 +29,23 @@ AddressSanitizer. The bug is reachable as a plain segmentation fault.
 ## Step 2: Run the fuzzer
 
 ```
+./fuzz_exif -artifact_prefix=crashes/
+```
+
+- `-artifact_prefix=` is where crashing inputs are written; the trailing `/` is
+  required, otherwise it is treated as a filename prefix rather than a
+  directory
+
+We can optionally add a corpus folder.
+
+```
 ./fuzz_exif corpus -artifact_prefix=crashes/
 ```
 
 - `corpus` is the directory of starting inputs
-- `-artifact_prefix=` is where crashing inputs are written; the trailing `/` is
-  required, otherwise it is treated as a filename prefix rather than a
-  directory
+
+
+Running with or without the corpus will find the bug for this exercise, so do not worry.
 
 libFuzzer prints a line whenever it discovers new coverage. When it finds a
 crash it prints the stack trace and saves the input to `crashes/`.

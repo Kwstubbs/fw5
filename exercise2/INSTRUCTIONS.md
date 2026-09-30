@@ -41,11 +41,12 @@ The compiled classes land in `out/`.
 ## Step 3: Run the fuzzer
 
 ```
-./jazzer/jazzer --cp=out --target_class=fuzzer -artifact_prefix=crashes/ corpus
+./jazzer/jazzer --cp=out --target_class=fuzzer -seed=1735645154 -artifact_prefix=crashes/ corpus
 ```
 
 - `--cp=out` is the classpath holding your compiled classes
 - `--target_class=fuzzer` is the class containing `fuzzerTestOneInput`
+- `-seed=1735645154` fixes the random seed for more repeatable fuzzing runs
 - `-artifact_prefix=` is where crashing inputs are written; the trailing `/` is
   required, otherwise it is treated as a filename prefix
 - `corpus` is the directory of starting inputs
@@ -69,4 +70,3 @@ directory. Replay a saved input with:
 ```
 ./jazzer/jazzer --cp=out --target_class=fuzzer crashes/<crash-file>
 ```
-
