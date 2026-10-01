@@ -43,12 +43,13 @@ def find_injection(html):
 
     for tag in soup.find_all(True):
         if tag.name not in ALLOWED_TAGS:
-            # TODO: Return a short description of this unexpected tag.
+            return "Tag " + tag.name + " found in output from html: "
             pass
 
         allowed = ALLOWED_ATTRS.get(tag.name, frozenset())
         for attr in tag.attrs:
-            # TODO: Return a short description if attr is not allowed for this tag.
+            if attr.lower() not in allowed:
+                return "Forbidden attribute: " + attr
             pass
 
     return None
