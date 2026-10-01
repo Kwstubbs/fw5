@@ -85,6 +85,20 @@ When your oracle fires, Atheris prints the payload and saves it under
 python fuzz_mistune.py crashes/<crash-file>
 ```
 
+### Reset the corpus
+
+The run command above does not use an on-disk corpus, so each run already
+starts fresh. If you passed a `corpus` argument to save inputs between runs,
+stop the fuzzer and run this from the `exercise3` directory:
+
+```
+git clean -fdx -- corpus/ && mkdir -p corpus
+```
+
+There are no bundled corpus seeds for this exercise. This permanently deletes
+all untracked inputs in `corpus/`, including ignored files, and recreates the
+empty directory. Saved crashes are left untouched. Then rerun the fuzzer.
+
 ## Step 5: Triage what you found
 
 A crash file is a candidate, not a conclusion. For each one, print the raw HTML

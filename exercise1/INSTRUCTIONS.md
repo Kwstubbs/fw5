@@ -58,6 +58,20 @@ Useful flags while experimenting:
 -max_len=4096         cap the size of generated inputs
 ```
 
+### Reset the corpus
+
+If you make a mistake and want to restart with only the original seed inputs, stop the fuzzer and run this
+from the `exercise1` directory:
+
+```
+git restore --source=HEAD -- corpus/ && git clean -fdx -- corpus/
+```
+
+This restores the committed seeds, discarding local edits to them, and
+permanently deletes all untracked inputs in `corpus/`, including ignored
+fuzzer-generated files. Saved crashes are left untouched. Then rerun the
+fuzzer command above.
+
 ## Step 3: Reproduce a crash
 
 Pass a saved crash file instead of the corpus directory. No other flags are

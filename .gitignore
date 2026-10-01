@@ -12,7 +12,8 @@ exercise1/corpus/
 exercise3/corpus/
 exercise2/corpus/
 exercise3/crashes/
-exercise2/crashes/
+exercise2/crashes/*
+!exercise2/crashes/.gitkeep
 crash-*
 leak-*
 timeout-*

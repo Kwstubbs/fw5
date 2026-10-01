@@ -51,6 +51,9 @@ The compiled classes land in `out/`.
   required, otherwise it is treated as a filename prefix
 - `corpus` is the directory of starting inputs
 
+The `crashes/` directory is included in Git via a `.gitkeep` placeholder;
+generated crash artifacts remain ignored.
+
 Jazzer flags use `--`, while the libFuzzer flags underneath it use a single
 `-`. Mixing the two up is the most common reason a flag appears to be ignored.
 
@@ -60,6 +63,20 @@ Useful libFuzzer flags while experimenting:
 -runs=100000          stop after N executions
 -max_total_time=60    stop after N seconds
 ```
+
+### Reset the corpus
+
+If you make a mistake and want to restart with only the original seed inputs, stop the fuzzer and run this
+from the `exercise2` directory:
+
+```
+git restore --source=HEAD -- corpus/ && git clean -fdx -- corpus/
+```
+
+This restores the committed seeds, discarding local edits to them, and
+permanently deletes all untracked inputs in `corpus/`, including ignored
+fuzzer-generated files. Saved crashes are left untouched. Then rerun the
+fuzzer command above.
 
 ## Step 4: Reproduce a crash
 
