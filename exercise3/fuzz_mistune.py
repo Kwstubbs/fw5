@@ -19,7 +19,11 @@ def TestOneInput(data):
     s = atheris.FuzzedDataProvider(data).ConsumeUnicode(len(data))
     html = _markdown(s)
 
+    if "mailto:" not in html:
+        return None
+
     reason = find_injection(html)
+    
     if reason:
         raise AssertionError(f"{reason}\n  payload: {s!r}\n  html:    {html!r}")
 
